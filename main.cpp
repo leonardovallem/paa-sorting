@@ -12,7 +12,7 @@ void test_permutation_sort() {
     println("Permutation sort: ");
 
     print_array(a, n);
-    permutation_sort(a, n, true);
+    permutation_sort(a, n, false);
     print_array(a, n);
 
     println();
