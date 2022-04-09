@@ -22,6 +22,5 @@ void permute_array(int array[], const int n, const bool uniquePermutations) {
 void permutation_sort(int array[], int n, const bool uniquePermutations) {
     while (!is_sorted(array, n)) {
         permute_array(array, n, uniquePermutations);
-        print_array(array, n);
     }
 }
