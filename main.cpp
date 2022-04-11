@@ -6,13 +6,18 @@
 
 #define n 10
 
+void show_all_array_permutations() {
+    int a[] = {3, 2, 5, 1, 0, 4};
+    permute_array(a, 0, 5, false);
+}
+
 void test_permutation_sort() {
     int a[] = {3, 2, 5, 1, 0, 4, 7, 6, 9, 8};
 
     println("Permutation sort: ");
 
     print_array(a, n);
-    permutation_sort(a, n, false);
+    permutation_sort(a, n);
     print_array(a, n);
 
     println();
@@ -21,7 +26,6 @@ void test_permutation_sort() {
 void test_quicksort() {
     int a[] = {3, 2, 5, 1, 0, 4, 7, 6, 9, 8};
 
-    println("Quicksort: ");
 
     print_array(a, n);
     quicksort(a, n);
@@ -55,10 +59,11 @@ void test_mergesort() {
 }
 
 int main() {
-    test_permutation_sort();
-    test_quicksort();
-    test_selection_sort();
-    test_mergesort();
+    show_all_array_permutations();
+//    test_permutation_sort();
+//    test_quicksort();
+//    test_selection_sort();
+//    test_mergesort();
 
     return 0;
 }

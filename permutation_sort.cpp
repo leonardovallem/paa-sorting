@@ -4,24 +4,17 @@
 
 using namespace std;
 
-vector<int *> previousPermutations;
-void store_permutation(int array[], const int n) {
-    int a[n];
-    for (int i = 0; i < n; ++i) a[i] = array[i];
-    previousPermutations.push_back(a);
-}
-
-void permute_array(int array[], const int n, const bool uniquePermutations) {
-    for (int i = 0; i < n; i++) swap(array[i], array[rand() % n]);
-    if (!uniquePermutations) return;
-
-    if (contains(previousPermutations, array)) permute_array(array, n, true);
-    else store_permutation(array, n);
-}
-
-void permutation_sort(int array[], int n, const bool uniquePermutations) {
-    while (!is_sorted(array, n)) {
-        permute_array(array, n, uniquePermutations);
-        print_array(array, n);
+void permute_array(int array[], int index, int n, bool sort) {
+    if (!sort && index == n) print_array(array, n + 1);
+    for (int i = index; i <= n; i++) {
+        if (!sort || !std::is_sorted(array, array + n + 1)) {
+            std::swap(array[i], array[index]);
+            permute_array(array, index + 1, n, sort);
+        }
+        if (!sort || !std::is_sorted(array, array + n + 1)) std::swap(array[i], array[index]);
     }
+}
+
+void permutation_sort(int array[], int n) {
+    permute_array(array, 0, n - 1, true);
 }

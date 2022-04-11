@@ -5,8 +5,6 @@
 #include <string>
 
 void print_array(const int array[], int n);
-bool contains(std::vector<int *> v, int array[]);
-bool is_sorted(const int array[], int n);
 void println();
 void println(std::string str);
 
